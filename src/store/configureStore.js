@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 
 import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -8,7 +9,7 @@ const configureStore = ({ reducer, initialState }) => {
   const store = createStore(
     reducer,
     initialState,
-    composeEnhancers(applyMiddleware()),
+    composeEnhancers(applyMiddleware(thunk)),
   )
 
   if (module.hot) {

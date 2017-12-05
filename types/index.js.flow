@@ -1,0 +1,22 @@
+/* eslint-disable no-unused-vars */
+
+type TProduct = any
+type TProductGroup = {
+  id: number,
+  title: string,
+  products: {
+    [key: string]: TProduct,
+  },
+}
+type TData = {
+  [key: string]: TProductGroup,
+}
+
+type OrderFormProps = {
+  loadProducts: Function,
+  loadProductGroups: Function,
+  redux: {
+    loading: boolean,
+    data: TData,
+  },
+}
